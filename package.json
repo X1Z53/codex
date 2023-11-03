@@ -9,16 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.1.5",
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@monaco-editor/react": "^4.6.0",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^10.16.4",
+    "monaco-editor": "^0.44.0",
+    "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.1"
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/file-saver": "^2.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.9",
     "eslint": "^8",
-    "eslint-config-next": "14.0.1"
+    "eslint-config-next": "14.0.1",
+    "typescript": "^5"
   }
 }
