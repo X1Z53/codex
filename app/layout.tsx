@@ -11,6 +11,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <CacheProvider>
           <ChakraProvider
             theme={extendTheme({
+              styles: {
+                global: {
+                  body: { backgroundColor: "#1e1e1e", color: "#d4d4d4" },
+                },
+              },
               config: {
                 initialColorMode: "dark",
                 useSystemColorMode: false,

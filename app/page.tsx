@@ -1,5 +1,5 @@
 "use client"
-import { Box, Button, Code, Flex, Input } from "@chakra-ui/react"
+import { Box, Button, Code, Flex, Heading, Input } from "@chakra-ui/react"
 import loader from "@monaco-editor/loader"
 import Editor from "@monaco-editor/react"
 import { saveAs } from "file-saver"
@@ -49,7 +49,7 @@ export default function App() {
 
   return (
     <Flex height={"100dvh"} flexDirection={"column"}>
-      <Box>
+      <Flex justifyContent={"space-between"}>
         <Button onClick={() => inputRef.current?.click()}>
           Загрузить файл
         </Button>
@@ -61,10 +61,11 @@ export default function App() {
             event.target.files && setFile(event.target.files[0])
           }}
         />
+        <Heading>CodeX</Heading>
         <Button onClick={() => saveAs(new Blob([value || ""]), file?.name)}>
           Сохранить файл
         </Button>
-      </Box>
+      </Flex>
       <Editor language={language} value={value} theme={"vs-dark"} />
       <Code />
     </Flex>
