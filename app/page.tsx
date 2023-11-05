@@ -1,8 +1,16 @@
 "use client"
-import { Button, Center, Flex, Heading, Input, Select } from "@chakra-ui/react"
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  Input,
+  Select,
+} from "@chakra-ui/react"
 import loader from "@monaco-editor/loader"
-import Editor from "@monaco-editor/react"
 import { saveAs } from "file-saver"
+import * as monaco from "monaco-editor"
 import { useEffect, useRef, useState } from "react"
 
 export default function App() {
@@ -81,6 +89,16 @@ export default function App() {
     }
   }, [file, languagesAssociations])
 
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+      monaco.editor.create(containerRef.current!, {
+        value: value || "ASDFASDFASDFASDFSF",
+        language,
+        theme: "vs-dark",
+      })
+  }, [])
+
   return (
     <Flex height={"100dvh"} flexDirection={"column"}>
       <Center
@@ -130,7 +148,8 @@ export default function App() {
           </Button>
         </Flex>
       </Center>
-      <Editor language={language} value={value} theme={"vs-dark"} />
+      {/* <Editor language={language} value={value} theme={"vs-dark"} /> */}
+      <Box ref={containerRef} />
       <Input
         type={"file"}
         display={"none"}
